@@ -1,227 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Responsive Iframes with Top Menu</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      overflow-x: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Holiday UK+Cruise</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        overflow-x: hidden;
+      }
 
-    /* Top menu styles */
-    #topbar {
-      background: #333;
-      color: white;
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      transition: max-height 0.3s ease;
-      overflow: hidden;
-    }
+      /* Top menu styles */
+      #topbar {
+        background: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        transition: max-height 0.3s ease;
+        overflow: hidden;
+      }
 
-    #topbar.hidden {
-      max-height: 0;
-      padding: 0;
-    }
+      #topbar.hidden {
+        max-height: 0;
+        padding: 0;
+      }
 
-    #topbar button {
-      background: #555;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 1em;
-    }
+      #topbar button {
+        background: #555;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 1em;
+      }
 
-    #topbar button:hover {
-      background: #777;
-    }
+      #topbar button:hover {
+        background: #777;
+      }
 
-    #toggle-btn {
-      background: #222;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-      margin: 10px;
-      position: relative;
-      z-index: 10;
-    }
+      #toggle-btn {
+        background: #222;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 10px;
+        position: relative;
+        z-index: 10;
+      }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .iframe-box {
-      flex: 1 1 300px;
-      max-width: 600px;
-      background: white;
-      padding: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .iframe-box h2 {
-      margin-bottom: 10px;
-      font-size: 1.2em;
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 4px;
-    }
-
-.expanded {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  height: 90vh;
-  padding: 20px;
-  z-index: 5;
-  background: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  overflow: auto;
-}
-    
-.back-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #eee;
-  color: #333;
-  border: none;
-  padding: 6px 10px;
-  font-size: 0.9em;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-}
-
-.back-btn:hover {
-  background: #ddd;
-}
-    .expanded iframe {
-      height: calc(100% - 40px);
-    }
-
-    .hidden-box {
-      display: none;
-    }
-
-    /* Center boxes on small screens */
-    @media (max-width: 600px) {
       .container {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        transition: all 0.3s ease;
       }
 
       .iframe-box {
-        width: 90%;
+        flex: 1 1 300px;
+        max-width: 600px;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .iframe-box h2 {
+        margin-bottom: 10px;
+        font-size: 1.2em;
       }
 
       iframe {
-        height: 200px;
+        width: 100%;
+        height: 300px;
+        border: none;
+        border-radius: 4px;
       }
-    }
 
-    @media (max-width: 400px) {
-      iframe {
-        height: 150px;
+      .expanded {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        height: 90vh;
+        padding: 20px;
+        z-index: 5;
+        background: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: auto;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <button id="toggle-btn" onclick="toggleMenu()">☰ Menu</button>
+      .back-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #eee;
+        color: #333;
+        border: none;
+        padding: 6px 10px;
+        font-size: 0.9em;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      }
 
-  <div id="topbar">
-    <button onclick="expandBox(1)">Show Box 1</button>
-    <button onclick="expandBox(2)">Show Box 2</button>
-    <button onclick="expandBox(3)">Show Box 3</button>
-    <button onclick="expandBox(4)">Show Box 4</button>
-    <button onclick="expandBox(5)">Show Box 5</button>
-    <button onclick="showAll()">Show All</button>
-  </div>
+      .back-btn:hover {
+        background: #ddd;
+      }
+      .expanded iframe {
+        height: calc(100% - 40px);
+      }
 
-  <div class="container">
-    <div class="iframe-box" id="box1">
-      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
-      <h2>Box 1</h2>
-      <iframe src="https://example.com"></iframe>
-    </div>
-    <div class="iframe-box" id="box2">
-      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
-      <h2>Box 2</h2>
-      <iframe src="https://example.com"></iframe>
-    </div>
-    <div class="iframe-box" id="box3">
-      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
-      <h2>Box 3</h2>
-      <iframe src="https://example.com"></iframe>
-    </div>
-    <div class="iframe-box" id="box4">
-      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
-      <h2>Box 4</h2>
-      <iframe src="https://example.com"></iframe>
-    </div>
-    <div class="iframe-box" id="box5">
-      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
-      <h2>Box 5</h2>
-      <iframe src="https://example.com"></iframe>
-    </div>
-  </div>
+      .hidden-box {
+        display: none;
+      }
 
-  <script>
-    function expandBox(num) {
-      document.getElementById('topbar').classList.remove('hidden');
-      for (let i = 1; i <= 5; i++) {
-        const box = document.getElementById(`box${i}`);
-        if (i === num) {
-          box.classList.add('expanded');
-          box.classList.remove('hidden-box');
-        } else {
-          box.classList.remove('expanded');
-          box.classList.add('hidden-box');
+      /* Center boxes on small screens */
+      @media (max-width: 600px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .iframe-box {
+          width: 90%;
+        }
+
+        iframe {
+          height: 200px;
         }
       }
-    }
 
-    function showAll() {
-      document.getElementById('topbar').classList.remove('hidden');
-      for (let i = 1; i <= 5; i++) {
-        const box = document.getElementById(`box${i}`);
-        box.classList.remove('expanded');
-        box.classList.remove('hidden-box');
+      @media (max-width: 400px) {
+        iframe {
+          height: 150px;
+        }
       }
-    }
+    </style>
+  </head>
+  <body>
+    <button id="toggle-btn" onclick="toggleMenu()">☰ Menu</button>
 
-    function toggleMenu() {
-      const topbar = document.getElementById('topbar');
-      topbar.classList.toggle('hidden');
-    }
-  </script>
+    <div id="topbar">
+      <button onclick="expandBox(1)">London : 9-12 Sept</button>
+      <button onclick="expandBox(2)">Market Harborough : 13 Sept</button>
+      <button onclick="expandBox(3)">Lincoln : 14 Sept</button>
+      <button onclick="expandBox(4)">Chester : 15 Sept</button>
+      <button onclick="expandBox(5)">Shrewsbury : 16 Sept</button>
+      <button onclick="expandBox(6)">Salisbury : 17 Sept</button>
+      <button onclick="expandBox(7)">Salisbury : 18 Sept</button>
+      <button onclick="expandBox(8)">Heathrow : 19 Sept</button>
+      <button onclick="expandBox(9)">Barcelona : 20 Sept</button>
+      <button onclick="expandBox(10)">Cruise : 21 Sept</button>
+      <button onclick="expandBox(11)">Barcelona : 28 Sept</button>
+      <button onclick="expandBox(12)">Documents</button>
 
-</body>
+      <button onclick="showAll()">Show All</button>
+    </div>
+
+    <div class="container">
+      <div class="iframe-box" id="box1">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>London : 9-12 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box2">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Market Harborough : 13 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box3">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Lincoln : 14 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box4">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Chester : 15 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box5">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Shrewsbury : 16 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+
+      <div class="iframe-box" id="box6">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Salisbury : 17 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box7">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Salisbury : 18 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box8">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Heathrow : 19 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box9">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Barcelona : 20 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box10">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Cruise : 21 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box11">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Barcelona : 28 Sept</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+      <div class="iframe-box" id="box12">
+        <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
+        <h2>Documents</h2>
+        <iframe src="https://example.com"></iframe>
+      </div>
+    </div>
+
+    <script>
+      function expandBox(num) {
+        document.getElementById("topbar").classList.remove("hidden");
+        for (let i = 1; i <= 12; i++) {
+          const box = document.getElementById(`box${i}`);
+          if (i === num) {
+            box.classList.add("expanded");
+            box.classList.remove("hidden-box");
+          } else {
+            box.classList.remove("expanded");
+            box.classList.add("hidden-box");
+          }
+        }
+      }
+
+      function showAll() {
+        document.getElementById("topbar").classList.remove("hidden");
+        for (let i = 1; i <= 12; i++) {
+          const box = document.getElementById(`box${i}`);
+          box.classList.remove("expanded");
+          box.classList.remove("hidden-box");
+        }
+      }
+
+      function toggleMenu() {
+        const topbar = document.getElementById("topbar");
+        topbar.classList.toggle("hidden");
+      }
+    </script>
+  </body>
 </html>
-
