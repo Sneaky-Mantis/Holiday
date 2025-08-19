@@ -87,21 +87,39 @@
       border-radius: 4px;
     }
 
-    .expanded {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90vw;
-      height: 90vh;
-      padding: 20px;
-      z-index: 5;
-      background: white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      border-radius: 10px;
-      overflow: auto;
-    }
+.expanded {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  padding: 20px;
+  z-index: 5;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: auto;
+}
+    
+.back-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #eee;
+  color: #333;
+  border: none;
+  padding: 6px 10px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
 
+.back-btn:hover {
+  background: #ddd;
+}
     .expanded iframe {
       height: calc(100% - 40px);
     }
@@ -148,22 +166,27 @@
 
   <div class="container">
     <div class="iframe-box" id="box1">
+      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
       <h2>Box 1</h2>
       <iframe src="https://example.com"></iframe>
     </div>
     <div class="iframe-box" id="box2">
+      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
       <h2>Box 2</h2>
       <iframe src="https://example.com"></iframe>
     </div>
     <div class="iframe-box" id="box3">
+      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
       <h2>Box 3</h2>
       <iframe src="https://example.com"></iframe>
     </div>
     <div class="iframe-box" id="box4">
+      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
       <h2>Box 4</h2>
       <iframe src="https://example.com"></iframe>
     </div>
     <div class="iframe-box" id="box5">
+      <button class="back-btn" onclick="showAll()">🔙 Back to All</button>
       <h2>Box 5</h2>
       <iframe src="https://example.com"></iframe>
     </div>
@@ -201,3 +224,4 @@
 
 </body>
 </html>
+
